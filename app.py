@@ -14,11 +14,19 @@ sample_sales = {
 }
 
 def apply_discount(subtotal):
-    pass
+    if subtotal >= 50.00:
+        return round(subtotal * 0.90, 2)
+    return subtotal
 
 def shipping_fee(subtotal):
-    pass
+    if subtotal >= 35.00:
+        return 0.0
+    return 5.99
 
 st.title("Bright Bakery Interactive Order Calculator")
 st.caption("A class practice app that calculates a quote.")
-st.info("Starter file loaded.")
+
+st.write("Delivery for 34.99:", shipping_fee(34.99))
+st.write("Delivery for 35.00:", shipping_fee(35.00))
+st.write("Items after discount for 49.99:", apply_discount(49.99))
+st.write("Items after discount for 50.00:", apply_discount(50.00))
